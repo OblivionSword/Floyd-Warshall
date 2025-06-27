@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class Floyd_WarshallTest {
 	
-	Floyd_Warshall FloydWarshall = new Floyd_Warshall();
+	Floyd_Warshall fw = new Floyd_Warshall();
 	
 	private static final Integer INF = Floyd_Warshall.INF;
 
@@ -20,7 +20,7 @@ class Floyd_WarshallTest {
 	            {5, 0, 2},
 	            {3, 7, 0}
 	        };
-	        int[][] result = FloydWarshall.floydWarshall(graph);
+	        int[][] result = fw.floydWarshall(graph);
 	        assertMatrixEquals(expected, result);
 	    }
 
@@ -36,7 +36,7 @@ class Floyd_WarshallTest {
 	            {INF, 0, INF},
 	            {INF, INF, 0}
 	        };
-	        assertMatrixEquals(expected, FloydWarshall.floydWarshall(graph));
+	        assertMatrixEquals(expected, fw.floydWarshall(graph));
 	    }
 
 	    @Test
@@ -51,7 +51,7 @@ class Floyd_WarshallTest {
 	                {-1, 0, -2},
 	                {1, 3, 0}
 	        };
-	        assertMatrixEquals(expected, FloydWarshall.floydWarshall(graph));
+	        assertMatrixEquals(expected, fw.floydWarshall(graph));
 	    }
 
 	    @Test
@@ -61,7 +61,7 @@ class Floyd_WarshallTest {
 	            {INF, 0, -1},
 	            {-1, INF, 0}
 	        };
-	        int[][] result = FloydWarshall.floydWarshall(graph);
+	        int[][] result = fw.floydWarshall(graph);
 	        boolean hasNegativeCycle = false;
 	        for (int i = 0; i < result.length; i++) {
 	            if (result[i][i] < 0) {
@@ -84,7 +84,7 @@ class Floyd_WarshallTest {
 	            {INF, 0, 0},
 	            {INF, INF, 0}
 	        };
-	        assertMatrixEquals(expected, FloydWarshall.floydWarshall(graph));
+	        assertMatrixEquals(expected, fw.floydWarshall(graph));
 	    }
 
 	    @Test
@@ -95,14 +95,14 @@ class Floyd_WarshallTest {
 	        int[][] expected = {
 	            {0}
 	        };
-	        assertMatrixEquals(expected, FloydWarshall.floydWarshall(graph));
+	        assertMatrixEquals(expected, fw.floydWarshall(graph));
 	    }
 
 	    @Test
 	    void testEmptyGraph() {
 	        int[][] graph = {};
 	        int[][] expected = {};
-	        assertMatrixEquals(expected, FloydWarshall.floydWarshall(graph));
+	        assertMatrixEquals(expected, fw.floydWarshall(graph));
 	    }
     /**
      * Utility method for matrix comparison.
